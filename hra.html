@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      text-align: center;
+      padding: 100px;
+    }
+    #indicie {
+      display: none;
+      font-size: 24px;
+      color: #2e7d32;
+    }
+    #heslo-form {
+      margin-top: 20px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #01579b;
+    }
+    .chyba {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Zadej heslo pro zobrazení indicie</h2>
+  
+  <div id="heslo-form">
+    <input type="password" id="heslo" placeholder="Zadej heslo">
+    <button onclick="zkontrolujHeslo()">Odeslat</button>
+    <div class="chyba" id="chyba"></div>
+  </div>
+
+  <div id="indicie">
+    <p>🔍 Indicie je: <strong>česká třebová</strong></p>
+  </div>
+
+  <script>
+    function zkontrolujHeslo() {
+      const spravneHeslo = "tajneheslo"; // <- tady změň heslo podle potřeby
+      const zadaneHeslo = document.getElementById("heslo").value;
+      const chyba = document.getElementById("chyba");
+
+      if (zadaneHeslo === spravneHeslo) {
+        document.getElementById("heslo-form").style.display = "none";
+        document.getElementById("indicie").style.display = "block";
+      } else {
+        chyba.textContent = "Nesprávné heslo. Zkus to znovu.";
+      }
+    }
+  </script>
+
+</body>
+</html>
